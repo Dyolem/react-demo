@@ -5,6 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import * as path from "node:path";
 
 export default defineConfig({
+  base:'/react-demo/',
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   resolve:{
     alias: [
