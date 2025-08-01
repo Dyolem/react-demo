@@ -1,0 +1,282 @@
+.task-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease;
+    cursor: grab;
+    position: relative;
+}
+
+.task-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.task-item:active {
+    cursor: grabbing;
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background: var(--bg-secondary);
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.task-item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.task-checkbox-wrapper {
+    padding-top: 0.125rem;
+}
+
+.task-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-info {
+    width: 100%;
+}
+
+.task-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.task-description {
+    color: var(--text-secondary);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+}
+
+.task-priority {
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.task-category {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.task-date {
+    color: var(--text-secondary);
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.task-action-btn {
+    background: none;
+    border: none;
+    padding: 0.375rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-action-btn:hover {
+    background: var(--bg-secondary);
+}
+
+.task-delete-btn:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.drag-handle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    padding: 0.375rem 0.25rem;
+    cursor: grab;
+    user-select: none;
+    line-height: 1;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+/* 编辑表单 */
+.task-edit-form {
+    width: 100%;
+}
+
+.task-edit-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.task-edit-textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    resize: vertical;
+    min-height: 3rem;
+}
+
+.task-edit-input:focus,
+.task-edit-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.task-edit-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-color-dark);
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 640px) {
+    .task-item {
+        padding: 0.75rem;
+    }
+
+    .task-item-header {
+        gap: 0.5rem;
+    }
+
+    .task-actions {
+        opacity: 1; /* 移动端始终显示操作按钮 */
+    }
+
+    .task-meta {
+        font-size: 0.7rem;
+    }
+
+    .task-title {
+        font-size: 1rem;
+    }
+
+    .task-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* 拖拽状态 */
+.task-item[draggable="true"]:hover {
+    cursor: grab;
+}
+
+.task-item:active {
+    cursor: grabbing;
+    opacity: 0.8;
+}
+
+/* 动画效果 */
+@keyframes taskSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item {
+    animation: taskSlideIn 0.3s ease-out;
+}
